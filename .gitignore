@@ -1,5 +1,5 @@
 bin/
-node_modules/
+node_modules
 coverage/
 *.log
 package-lock.json
