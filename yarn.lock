@@ -2221,6 +2221,7 @@ __metadata:
     eslint: ^7.12.1
     eslint-config-airbnb-base: 14.2.1
     eslint-config-prettier: ^6.14.0
+    eslint-plugin-mocha: ^9.0.0
     eslint-plugin-prettier: ^3.1.4
     fs-extra: ^9.0.1
     husky: ^4.3.8
@@ -12377,6 +12378,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-mocha@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "eslint-plugin-mocha@npm:9.0.0"
+  dependencies:
+    eslint-utils: ^3.0.0
+    ramda: ^0.27.1
+  peerDependencies:
+    eslint: ">=7.0.0"
+  checksum: f33143815a998ed5057ca9b2e8f0dd2ca062dc311a046490a832ab84f9de0ecf1b933276bd9db3c84b34b315ba07ac68d586f468f98d424bbeb44e1505ba94e8
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-node@npm:~6.0.0":
   version: 6.0.1
   resolution: "eslint-plugin-node@npm:6.0.1"
@@ -12523,6 +12536,17 @@ __metadata:
   dependencies:
     eslint-visitor-keys: ^1.1.0
   checksum: 27500938f348da42100d9e6ad03ae29b3de19ba757ae1a7f4a087bdcf83ac60949bbb54286492ca61fac1f5f3ac8692dd21537ce6214240bf95ad0122f24d71d
+  languageName: node
+  linkType: hard
+
+"eslint-utils@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "eslint-utils@npm:3.0.0"
+  dependencies:
+    eslint-visitor-keys: ^2.0.0
+  peerDependencies:
+    eslint: ">=5"
+  checksum: 0668fe02f5adab2e5a367eee5089f4c39033af20499df88fe4e6aba2015c20720404d8c3d6349b6f716b08fdf91b9da4e5d5481f265049278099c4c836ccb619
   languageName: node
   linkType: hard
 
@@ -21038,6 +21062,13 @@ pick@ianstormtaylor/pick:
   version: 0.26.1
   resolution: "ramda@npm:0.26.1"
   checksum: 19c2730e44c129538151ae034c89be9b2c6a4ccc7c65cff57497418bc532ce09282f98cd927c39b0b03c6bc3f1d1a12d822b7b07f96a1634f4958a6c05b7b384
+  languageName: node
+  linkType: hard
+
+"ramda@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "ramda@npm:0.27.1"
+  checksum: 31a0c0ef739b2525d7615f84cbb5d3cb89ee0c795469b711f729ea1d8df0dccc3cd75d3717a1e9742d42315ce86435680b7c87743eb7618111c60c144a5b8059
   languageName: node
   linkType: hard
 
