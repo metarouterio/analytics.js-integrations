@@ -1,3 +1,6 @@
+# 3.3.4 / 2021-11-30
+
+- Adding secureCookie option
 
 # 3.3.1 / 2020-12-14
 

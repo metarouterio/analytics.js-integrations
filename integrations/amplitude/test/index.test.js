@@ -28,6 +28,7 @@ describe('Amplitude', function() {
     traitsToSetOnce: [],
     preferAnonymousIdForDeviceId: true,
     unsetParamsReferrerOnNewSession: false,
+    secureCookie: false,
     versionName: '4.6.0'
   };
 
@@ -68,6 +69,7 @@ describe('Amplitude', function() {
         .option('deviceIdFromUrlParam', false)
         .option('appendFieldsToEventProps', {})
         .option('unsetParamsReferrerOnNewSession', false)
+        .option('secureCookie', false)
     );
   });
 
@@ -140,6 +142,7 @@ describe('Amplitude', function() {
         config.unsetParamsReferrerOnNewSession ===
           options.unsetParamsReferrerOnNewSession
       );
+      analytics.assert(config.secureCookie === options.secureCookie);
       analytics.assert(config.versionName === options.versionName);
     });
 
@@ -149,6 +152,16 @@ describe('Amplitude', function() {
       );
     });
 
+    describe('secureCookie true', function() {
+      before(function() {
+        options.secureCookie = true;
+      });
+
+      it('should init with secureCookie set to true', function() {
+        var config = window.amplitude.getInstance().options;
+        analytics.assert(config.secureCookie === options.secureCookie);
+      });
+    });
     describe('Initialize amplitude without versionName', function() {
       before(function() {
         delete options.versionName;

@@ -54,6 +54,7 @@ var Amplitude = (module.exports = integration('Amplitude')
   .option('trackProductsOnce', false)
   .option('versionName', '')
   .option('useAmplitudeReferral', false)
+  .option('secureCookie', false)
   .tag('<script src="' + src + '">'));
 
 /**
@@ -90,7 +91,8 @@ Amplitude.prototype.initialize = function() {
       this.options.preferAnonymousIdForDeviceId &&
       this.analytics &&
       this.analytics.user() &&
-      this.analytics.user().anonymousId()
+      this.analytics.user().anonymousId(),
+    secureCookie: this.options.secureCookie
   });
 
   // Initialize the amplitute with user specified site version if any.
