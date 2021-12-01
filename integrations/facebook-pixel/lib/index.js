@@ -31,6 +31,8 @@ var FacebookPixel = (module.exports = integration('Facebook Pixel')
   .option('keyForExternalId', '')
   .option('userIdAsExternalId', false)
   .option('limitedDataUse', true)
+  .option('dataProcessingOptions', false)
+  .option('allowDuplicatePageViews', false)
   .mapping('standardEvents')
   .mapping('legacyEvents')
   .mapping('contentTypes')
@@ -94,11 +96,11 @@ FacebookPixel.prototype.initialize = function() {
   window.fbq = window.fbq || window._fbq;
   window.fbq.push = window.fbq;
   window.fbq.loaded = true;
-  window.fbq.disablePushState = true; // disables automatic pageview tracking
-  window.fbq.allowDuplicatePageViews = true; // enables fb
-  window.fbq.agent = this.options.agent;
+  window.fbq.disablePushState = window.fbq.disablePushState || this.options.dataProcessingOptions;
+  window.fbq.allowDuplicatePageViews = window.fbq.allowDuplicatePageViews || this.options.allowDuplicatePageViews;
+  window.fbq.agent = window.fbq.agent || this.options.agent;
   window.fbq.version = '2.0';
-  window.fbq.queue = [];
+  window.fbq.queue = window.fbq.queue || [];
   this.load(this.ready);
   if (!this.options.automaticConfiguration) {
     window.fbq('set', 'autoConfig', false, this.options.pixelId);

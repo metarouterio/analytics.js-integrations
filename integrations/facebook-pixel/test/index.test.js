@@ -113,14 +113,26 @@ describe('Facebook Pixel', function() {
         analytics.equal(window.fbq.version, '2.0');
       });
 
-      it('should set disablePushState to true', function() {
+      it('should set disablePushState to false', function() {
         analytics.initialize();
-        analytics.equal(window.fbq.disablePushState, true);
+        analytics.equal(window.fbq.disablePushState, false);
       });
 
-      it('should set allowDuplicatePageViews to true', function() {
+      it('should return window values', function() {
+        window.fbq = {
+          disablePushState: true,
+          allowDuplicatePageViews: true,
+          queue: ['1', '2']
+        };
         analytics.initialize();
+        analytics.equal(window.fbq.disablePushState, true);
         analytics.equal(window.fbq.allowDuplicatePageViews, true);
+        analytics.equal(window.fbq.queue.length, 2);
+      });
+
+      it('should set allowDuplicatePageViews to false', function() {
+        analytics.initialize();
+        analytics.equal(window.fbq.allowDuplicatePageViews, false);
       });
 
       it('should create fbq object', function() {
